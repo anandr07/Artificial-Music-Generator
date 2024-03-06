@@ -18,7 +18,6 @@ This project implements an Artificial Music Generator using LSTM (Long Short-Ter
   - **training_log.csv**: CSV file containing training logs such as loss and accuracy.
 - **model/**: Directory for storing model weights.
   - **weights.X.h5**: HDF5 files storing model weights for different epochs.
-- **pycache/**: Directory containing cached Python files.
 
 ### Functionality
 
