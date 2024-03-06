@@ -1,3 +1,8 @@
+#%%
+# sample.py: Script for sampling text (music) from the trained model
+
+#%%
+# Importing necessary libraries
 import argparse
 import os
 import json
@@ -9,9 +14,11 @@ from model import build_model, load_weights
 from keras.models import Sequential, load_model
 from keras.layers import LSTM, Dropout, TimeDistributed, Dense, Activation, Embedding
 
+# Define data directory and model directory
 DATA_DIR = './data'
 MODEL_DIR = './model'
 
+# Function to build the sample model for music generation
 def build_sample_model(vocab_size):
     model = Sequential()
     model.add(Embedding(vocab_size, 512, batch_input_shape=(1, 1)))
@@ -23,6 +30,7 @@ def build_sample_model(vocab_size):
     model.add(Activation('softmax'))
     return model
 
+# Function to sample music from the trained model
 def sample(epoch, header, num_chars):
     with open(os.path.join(DATA_DIR, 'char_to_idx.json')) as f:
         char_to_idx = json.load(f)
