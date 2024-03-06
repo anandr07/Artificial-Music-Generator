@@ -45,7 +45,3 @@ Contributions are welcome! Feel free to fork the repository, make improvements, 
 ## License
 
 Not yet Licensed
-
----
-
-Replace `link-to-license` with the actual link to your license file. Adjust the content and formatting as needed to fit your project's specifics.
