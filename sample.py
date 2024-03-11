@@ -65,3 +65,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     print(sample(args.epoch, args.seed, args.len))
+
+# Enter - python3 sample.py --len 1024 100
