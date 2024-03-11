@@ -1,5 +1,5 @@
 #%%
-# sample.py: Script for sampling text (music) from the trained model
+# sample.py: Script for generating the artificial music 
 
 #%%
 # Importing necessary libraries
