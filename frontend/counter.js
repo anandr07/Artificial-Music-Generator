@@ -48,16 +48,12 @@ export function setupCounter(element) {
             "f''^f''g''^g''|a''^a''b''c'''|^c'''4|]"
         ];
 
-        
 
 
-
-
-
-        fetch('http://locahost:8080/generate')
-            .then(response => response.json())
-            .then(json => {
-                json.forEach(item => {
+        fetch('http://localhost:8080/generate')
+            .then(response => {
+                let res = abcjs.parseOnly(response)
+                res.forEach(item => {
                     let div = document.createElement('div')
                     let divid = 'abc' + abc.indexOf(item)
                     div.id = divid
@@ -65,8 +61,8 @@ export function setupCounter(element) {
                 })
                 // wait for 2 seconds
                 setTimeout(() => {
-                    json.forEach(item => {
-                        let divid = 'abc' + json.indexOf(item)
+                    res.forEach(item => {
+                        let divid = 'abc' + res.indexOf(item)
                         let renderObj = abcjs.renderAbc(divid, item)
                         var audioContext = new AudioContext();
                         var synth = new abcjs.synth.CreateSynth;
@@ -82,20 +78,20 @@ export function setupCounter(element) {
                                 let playButton = document.createElement('button')
                                 playButton.style.margin = '10px'
                                 playButton.innerText = "Start" + abc.indexOf(item)
-                                
+
                                 buttonDiv.appendChild(playButton)
                                 list_div.appendChild(buttonDiv)
 
                                 playButton.addEventListener('click', Start)
 
-                                function Start(){
+                                function Start() {
                                     synth.start();
                                     playButton.removeEventListener("click", Start);
                                     playButton.addEventListener("click", Stop);
                                     playButton.innerText = "Stop" + abc.indexOf(item);
                                 }
-                                
-                                function Stop(){
+
+                                function Stop() {
                                     synth.stop();
                                     playButton.removeEventListener("click", Stop);
                                     playButton.addEventListener("click", Start);

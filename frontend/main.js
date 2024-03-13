@@ -1,5 +1,5 @@
 import './style.css'
-import viteLogo from '/vite.svg'
+import viteLogo from '/soundsculpt.svg'
 import { setupCounter } from './counter'
 import 'abcjs/abcjs-audio.css';
 
