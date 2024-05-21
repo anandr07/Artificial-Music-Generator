@@ -54,7 +54,7 @@ def sample(epoch, header, num_chars):
         result = model.predict_on_batch(batch).ravel()
         sample = np.random.choice(range(vocab_size), p=result)
         sampled.append(sample)
-
+    print(sampled)
     return ''.join(idx_to_char[c] for c in sampled)
 
 if __name__ == '__main__':
@@ -63,7 +63,7 @@ if __name__ == '__main__':
     parser.add_argument('--seed', default='', help='initial seed for the generated text')
     parser.add_argument('--len', type=int, default=512, help='number of characters to sample (default 512)')
     args = parser.parse_args()
-    print(args.epoch, args.seed, args.len)
-    # print(sample(args.epoch, args.seed, args.len))
+    # print(args.epoch, args.seed, args.len)
+    print(sample(args.epoch, args.seed, args.len))
    
 # Enter - python3 sample.py --len 1024 100
