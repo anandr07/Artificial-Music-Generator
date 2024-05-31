@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.get('/generate')
 def generate():
-    sam =sample(100, " ", 1024)
+    sam =sample(100, " ", 1500)
     response = Response(sam)
     response.headers.add('Access-Control-Allow-Origin', '*')
     print(sam)
